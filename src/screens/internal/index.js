@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/dist/Feather';
 
 const Internal = ({route}) => {
   const {burger} = route.params;
@@ -18,37 +19,21 @@ const Internal = ({route}) => {
   return (
     <View style={styles.container}>
       <Image
-        style={{width: 400, height: 400}}
+        style={{width: 400, height: 400, alignSelf: 'center'}}
         resizeMode="contain"
         source={{
           uri: burger.img,
         }}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 20,
-        }}>
+      <View style={styles.boxTitleContainer}>
         <View>
           <Text style={styles.textHeaderBottom}>{burger.name}</Text>
           <Text style={styles.textHeaderBottom}>{burger.descripton}</Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <View style={styles.boxQuantity}>
           <TouchableOpacity
             onPress={handleDecrement}
-            style={{
-              backgroundColor: 'white',
-              width: 30,
-              height: 30,
-              borderRadius: 5,
-            }}>
+            style={styles.styleButton}>
             <Text
               style={{
                 fontSize: 20,
@@ -62,12 +47,7 @@ const Internal = ({route}) => {
           </Text>
           <TouchableOpacity
             onPress={handleIncrement}
-            style={{
-              backgroundColor: 'white',
-              width: 30,
-              height: 30,
-              borderRadius: 5,
-            }}>
+            style={styles.styleButton}>
             <Text
               style={{
                 fontSize: 20,
@@ -78,47 +58,22 @@ const Internal = ({route}) => {
           </TouchableOpacity>
         </View>
       </View>
-      <Text
-        style={{
-          color: '#b2b2b2',
-          fontWeight: '300',
-          fontSize: 14,
-          marginBottom: 20,
-        }}>
+      <Text style={styles.burgerDescription}>
         {burger.name} {burger.descripton} served with fries and drink. Enjoy our
         20% off offer with NEW
       </Text>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: 25,
-        }}>
+      <View style={styles.boxBottomContainer}>
         <View>
           <Text style={{color: 'white', fontSize: 20}}>Total Price</Text>
-          <Text style={{color: 'green', fontSize: 20}}>
+          <Text style={{color: 'green', fontSize: 20, fontWeight: 'bold'}}>
             U${(price * quantity).toFixed(2)}
           </Text>
         </View>
-        <TouchableOpacity
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#F0B321',
-            width: 150,
-            height: 50,
-            borderTopRightRadius: 50,
-            borderBottomRightRadius: 50,
-            borderBottomLeftRadius: 50,
-          }}>
-          <Text
-            style={{
-              color: 'white',
-              fontWeight: 'bold',
-            }}>
-            Order Now
-          </Text>
+        <TouchableOpacity style={styles.buttonOrderNow}>
+          <Text style={styles.orderNowText}>Order Now</Text>
+          <View style={styles.boxBagCircle}>
+            <Icon name="shopping-bag" size={18} color="#000" />
+          </View>
         </TouchableOpacity>
       </View>
     </View>
