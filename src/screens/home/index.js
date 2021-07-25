@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import List from './components/menu-item/index';
 import BurgerGrid from './components/burguer-grid/index';
 import TopBar from './components/top-bar/index';
+import Icon from 'react-native-vector-icons/dist/Feather';
 import styles from './styles';
 
 const menuItems = [
@@ -66,6 +67,7 @@ const HomeScreen = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginVertical: 30,
+          alignItems: 'center',
         }}>
         {menuItems.map(e => (
           <List
@@ -78,7 +80,7 @@ const HomeScreen = () => {
           />
         ))}
         <TouchableOpacity>
-          <Text>Icon</Text>
+          <Icon name="more-horizontal" size={25} color="#fff" />
         </TouchableOpacity>
       </View>
       <FlatList
