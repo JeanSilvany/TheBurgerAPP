@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import styles from './styles';
 
 const List = ({menu, item, handleButton}) => {
   return (
@@ -11,13 +12,3 @@ const List = ({menu, item, handleButton}) => {
 };
 
 export default List;
-
-const styles = StyleSheet.create({
-  ball: {
-    width: 10,
-    height: 10,
-    backgroundColor: '#f0b321',
-    borderRadius: 100,
-    alignSelf: 'center',
-  },
-});
