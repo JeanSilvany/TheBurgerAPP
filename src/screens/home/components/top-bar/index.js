@@ -1,15 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/dist/Feather';
 
 const TopBar = () => {
   return (
     <View style={styles.topBar}>
-      <View>
-        <Text>Icon1</Text>
-      </View>
-      <View>
-        <Text>Icon2</Text>
-      </View>
+      <TouchableOpacity>
+        <Icon name="menu" size={25} color="#fff" />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Icon name="search" size={25} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 };
